@@ -1,6 +1,6 @@
 [build]
   publish = "dist"
-  command = "docker-compose -f docker-compose.local-new.yml up -d rair-front"
+  command = "yarn build"
 
 [context.production]
   environment = { NODE_VERSION = "22.4.0" }
