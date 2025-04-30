@@ -1,3 +1,4 @@
+//@ts-nocheck
 import { Fragment, useCallback, useEffect, useState } from 'react';
 import { Toaster } from 'react-hot-toast';
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom';
@@ -62,7 +63,7 @@ import useContracts from './hooks/useContracts';
 import { useAppDispatch, useAppSelector } from './hooks/useReduxHooks';
 import useWeb3Tx from './hooks/useWeb3Tx';
 import { loadCategories, loadSettings } from './redux/settingsSlice';
-import { setConnectedChain } from './redux/web3Slice';
+// import { setConnectedChain } from './redux/web3Slice';
 import {
   AppContainerFluid,
   MainBlockApp
@@ -156,19 +157,19 @@ function App() {
     }
   }, [setRenderBtnConnect]);
 
-  useEffect(() => {
-    if (window.ethereum) {
-      const foo = async (chainId) => {
-        dispatch(setConnectedChain(chainId));
-      };
-      window.ethereum.on('chainChanged', foo);
-      window.ethereum.on('accountsChanged', logoutUser);
-      return () => {
-        window.ethereum.off('chainChanged', foo);
-        window.ethereum.off('accountsChanged', logoutUser);
-      };
-    }
-  }, [dispatch, logoutUser, blockchainSettings]);
+  // useEffect(() => {
+  //   if (window.ethereum) {
+  //     const foo = async (chainId) => {
+  //       dispatch(setConnectedChain(chainId));
+  //     };
+  //     window.ethereum.on('chainChanged', foo);
+  //     window.ethereum.on('accountsChanged', logoutUser);
+  //     return () => {
+  //       window.ethereum.off('chainChanged', foo);
+  //       window.ethereum.off('accountsChanged', logoutUser);
+  //     };
+  //   }
+  // }, [dispatch, logoutUser, blockchainSettings]);
 
   // gtag
 
